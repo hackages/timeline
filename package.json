@@ -1,0 +1,21 @@
+{
+  "name": "bootcamp.hackages.io",
+  "version": "0.0.1",
+  "description": "hackages, where hack goes with education",
+  "main": "index.js",
+  "scripts": {
+    "test": "hackages test"
+  },
+  "keywords": [
+    "react",
+    "hackages",
+    "redux",
+    "relay"
+  ],
+  "author": "007@hackages.io",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
+  }
+}
