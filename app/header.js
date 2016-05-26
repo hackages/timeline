@@ -1,9 +1,16 @@
 import React from 'react';
 
 const Header = () => {
- return (<header>
-          <h1>Hackages, Where Hack goes with Education</h1>
-        </header>);
+ return (
+        <header>
+          <div className='overlay'>
+            <div className='logo'>
+             <img src='img/logo.png' alt='hackages logo'/>
+            </div>
+            <h1>Where Hack Goes With Education</h1>
+         </div>
+        </header>
+   );
 };
 
 export default Header;
