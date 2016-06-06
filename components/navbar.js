@@ -2,8 +2,8 @@ import React from 'react';
 // import './css/navbar.css';
 
 const filters = [
-  { category: 'Home', selected: true},
-  { category: 'Timeline', selected: false},
+  { category: 'Home', selected: false},
+  { category: 'Timeline', selected: true},
   { category: 'HackCamp', selected: false},
   { category: 'HackDay', selected: false},
   { category: 'Products', selected: false},
