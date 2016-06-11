@@ -1,33 +1,57 @@
-import React from 'react';
-// import './css/navbar.css';
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 
-const filters = [
-  { category: 'Home', selected: false},
-  { category: 'Timeline', selected: true},
-  { category: 'HackCamp', selected: false},
-  { category: 'HackDay', selected: false},
-  { category: 'Products', selected: false},
+const menus = [
+  { page: 'Home', selected: false },
+  { page: 'Timeline', selected: false },
+  { page: 'HackCamp', selected: true },
+  { page: 'HackDay', selected: false },
+  { page: 'Products', selected: false },
 ];
 
 
-export default () => {
+class NavBar extends Component {
+  constructor() {
+    super();
+    this.state = {
+      menus: menus
+    };
+  }
 
-  const filterItems = filters.map(filter => {
-    return (<li key={ filter.category } style={{display: 'inline-style'}}>
-            <a className={filter.selected? 'selected': ''} href="#0">{filter.category}</a>
-            </li>);
-  });
+  selectMenu(menu) {
+    this.setState({
+      menus: this.state.menus.map(item => {
+        if(item.page === menu.page){
+          item.selected = true;
+          return item;
+        }
+        item.selected = false;
+        return item;
+      })
+    });
+  }
 
+  render() {
+    const navs = this.state.menus.map(menu => {
+      return (
+         <li key={ menu.page } style={{display: 'inline-style'}} onClick={ this.selectMenu.bind(this, menu) }>
+           <Link className={menu.selected? 'selected': ''} to={ menu.page.toLowerCase() }>{ menu.page }</Link>
+         </li>
+      );
+    });
 
-  return <div className="tab-filter-wrapper">
+    return <div className="tab-filter-wrapper">
           <div className="tab-filter" >
             <ul >
               <li className="placeholder">
                 <a data-type="all" href="#0">All</a>
               </li>
-              {filterItems}
+              { navs }
             </ul>
           </div>
 		    </div>
-};
+  }
+}
+
+export default NavBar;
 
