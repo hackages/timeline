@@ -3,8 +3,8 @@ import { Link } from 'react-router';
 
 const menus = [
   { page: 'Home', selected: false },
-  { page: 'Timeline', selected: false },
-  { page: 'HackCamp', selected: true },
+  { page: 'Timeline', selected: true },
+  { page: 'HackCamp', selected: false },
   { page: 'HackDay', selected: false },
   { page: 'Products', selected: false },
 ];
@@ -14,11 +14,14 @@ class NavBar extends Component {
   constructor() {
     super();
     this.state = {
-      menus: menus
+      menus: menus,
+      activeMenu: menus.filter(menu => menu.selected)[0],
     };
   }
 
   selectMenu(menu) {
+    if (menu.page === this.state.activeMenu.page) return;
+
     this.setState({
       menus: this.state.menus.map(item => {
         if(item.page === menu.page){
@@ -27,7 +30,8 @@ class NavBar extends Component {
         }
         item.selected = false;
         return item;
-      })
+      }),
+      activeMenu: menu
     });
   }
 
@@ -35,12 +39,13 @@ class NavBar extends Component {
     const navs = this.state.menus.map(menu => {
       return (
          <li key={ menu.page } style={{display: 'inline-style'}} onClick={ this.selectMenu.bind(this, menu) }>
-           <Link className={menu.selected? 'selected': ''} to={ menu.page.toLowerCase() }>{ menu.page }</Link>
+           <Link className={ menu.selected? 'selected': '' } to={ menu.page.toLowerCase() }>{ menu.page }</Link>
          </li>
       );
     });
 
-    return <div className="tab-filter-wrapper">
+    return (
+      <div className="tab-filter-wrapper">
           <div className="tab-filter" >
             <ul >
               <li className="placeholder">
@@ -50,8 +55,8 @@ class NavBar extends Component {
             </ul>
           </div>
 		    </div>
+    );
   }
 }
 
 export default NavBar;
-
