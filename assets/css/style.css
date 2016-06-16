@@ -1,8 +1,3 @@
-/* -------------------------------- 
-
-Primary style
-
--------------------------------- */
 html * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -12,6 +7,11 @@ html * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+div#hackages {
+  background-color: aliceblue;
+  height: 100%;
 }
 
 body {
@@ -545,3 +545,26 @@ header h1 {
 .video-container video.fillWidth {
     width: 100%;
 }
+
+.transition-enter {
+  opacity: 0.01;
+  transition: opacity .5s ease-in;
+}
+
+.transition-enter.transition-enter-active {
+  opacity: 1;
+}
+
+.transition-leave {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+
+.transition-leave.transition-leave-active {
+  opacity: 0;
+}
+
+/* .link-active { */
+/*   color: #bbbbbb; */
+/*   text-decoration: none; */
+/* } */
