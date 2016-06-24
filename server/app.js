@@ -9,10 +9,8 @@ const server = express();
 const PORT = process.env.PORT || 9000;
 
 server.get('/', (req, res) => {
-
   const html = ReactDOMServer.renderToString(App());
   res.send(html);
-
 });
 
 
