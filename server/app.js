@@ -36,10 +36,6 @@ app.get('*', (req, res) => {
   });
 });
 
-const server = http.createServer(app);
-
-server.listen(3003);
-
-server.on('listening', () => {
+app.listen(3003, () => {
   console.log('Listening on 3003');
 });
