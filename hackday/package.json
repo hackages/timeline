@@ -1,0 +1,15 @@
+{
+  "name": "hackday",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "hackages test",
+    "run:watch": "hackages watch",
+    "run:live": "hackages live",
+    "start": "npm-run-all --parallel run:watch run:live "
+  },
+  "keywords": [],
+  "author": "davy@hackages.io",
+  "license": "MIT"
+}
