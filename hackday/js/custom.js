@@ -16,7 +16,16 @@
     });
 
 /* scrollspy */
-$('body').scrollspy({ target: '#navbar-scroll' })
+$('body').scrollspy({ target: '#navbar-scroll' });
+
+$(document).scroll(function(x){
+  var isSticky = $('#menu-sticky-wrapper').hasClass('is-sticky');
+  if(isSticky){
+    $('#interviewBtn').css('visibility', 'visible').css('display', 'block');
+  } else {
+    $('#interviewBtn').css('visibility', 'hidden');
+  }
+});
 
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
@@ -49,7 +58,7 @@ $("#owl-testi").owlCarousel
     $("#menu").sticky({topSpacing:0});
   });
 
-jQuery(document).ready(function($) {  
+jQuery(document).ready(function($) {
 
 // site preloader -- also uncomment the div in the header and the css style for #preloader
 $(window).load(function(){
@@ -59,10 +68,10 @@ $(window).load(function(){
 });
 
 
-	
+
 /* scrollToTop */
 $(document).ready(function(){
-	
+
 	//Check to see if the window is top if not then display button
 	$(window).scroll(function(){
 		if ($(this).scrollTop() > 500) {
@@ -71,16 +80,16 @@ $(document).ready(function(){
 			$('.scrollToTop').fadeOut();
 		}
 	});
-	
+
 	//Click event to scroll to top
 	$('.scrollToTop').click(function(){
 		$('html, body').animate({scrollTop : 0},800);
 		return false;
 	});
-	
+
 });
-	
-/* parallax background image http://www.minimit.com/articles/lets-animate/parallax-backgrounds-with-centered-content	
+
+/* parallax background image http://www.minimit.com/articles/lets-animate/parallax-backgrounds-with-centered-content
 /* detect touch */
 if("ontouchstart" in window){
     document.documentElement.className = document.documentElement.className + " touch";
