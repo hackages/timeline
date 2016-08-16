@@ -401,6 +401,11 @@ a:hover {
 .subscribe-form .form-control:-ms-input-placeholder {
 	color: #333;
 }
+
+div.key-points {
+	margin-top: 2em;
+}
+
 #package {
 	padding-top: 50px;
 }
