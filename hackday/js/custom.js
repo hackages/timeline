@@ -18,14 +18,16 @@
 /* scrollspy */
 $('body').scrollspy({ target: '#navbar-scroll' });
 
-$(document).scroll(function(x){
+function interviewBtn(x){
   var isSticky = $('#menu-sticky-wrapper').hasClass('is-sticky');
   if(isSticky){
     $('#interviewBtn').css('visibility', 'visible').css('display', 'block');
   } else {
     $('#interviewBtn').css('visibility', 'hidden');
   }
-});
+}
+
+$(document).scroll(interviewBtn);
 
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
@@ -56,6 +58,7 @@ $("#owl-testi").owlCarousel
 /* sticky navigation */
   $(document).ready(function(){
     $("#menu").sticky({topSpacing:0});
+    interviewBtn();
   });
 
 jQuery(document).ready(function($) {
